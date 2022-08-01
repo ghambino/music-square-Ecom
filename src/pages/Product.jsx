@@ -3,14 +3,21 @@ import { useParams, Link } from "react-router-dom";
 import { DataContext } from "../utilities/context";
 import StoreInfo from "../components/StoreInfo";
 import CategoryDisplay from "../components/CategoryDisplay";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/action";
 
 function Product() {
   const { slug } = useParams();
+  const dispatch = useDispatch();
   const { fetchedData } = useContext(DataContext);
   const [itemNumber, setItemNumber] = useState(1);
   console.log(fetchedData);
 
   const filterProduct = fetchedData.filter((unit) => unit.slug == slug);
+
+  // const addProduct = (product) => {
+  //   dispatch()
+  // }
 
   return (
     <>
@@ -18,7 +25,9 @@ function Product() {
         <h1 className="text-black">loading....</h1>
       ) : (
         <div className="bg-white px-[24px] md:px-[40px] lg:px-[165px] pt-[60px]">
-          <Link to="/" className="hover:text-brown">Go Back</Link>
+          <Link to="/" className="hover:text-brown">
+            Go Back
+          </Link>
           {filterProduct.map((unit, index) => (
             <>
               <div
@@ -40,10 +49,13 @@ function Product() {
                       {" "}
                       {unit.description}
                     </p>
-                    <p className="font-bold uppercase text-[18px] mb-[1.5rem]">$ {unit.price}</p>
+                    <p className="font-bold uppercase text-[18px] mb-[1.5rem]">
+                      $ {unit.price}
+                    </p>
                     <div className="flex items-center gap-[1rem]">
                       <div>
-                        <button className="bg-custom-gray p-[10px] mr-[2px]"
+                        <button
+                          className="bg-custom-gray p-[10px] mr-[2px]"
                           onClick={() =>
                             itemNumber > 1
                               ? setItemNumber(itemNumber - 1)
@@ -52,37 +64,54 @@ function Product() {
                         >
                           -
                         </button>
-                        <span className="bg-custom-gray p-[10px]">{itemNumber}</span>
-                        <button className="bg-custom-gray p-[10px] ml-[2px]" onClick={() => setItemNumber(itemNumber + 1)}>
+                        <span className="bg-custom-gray p-[10px]">
+                          {itemNumber}
+                        </span>
+                        <button
+                          className="bg-custom-gray p-[10px] ml-[2px]"
+                          onClick={() => setItemNumber(itemNumber + 1)}
+                        >
                           +
                         </button>
                       </div>
-                      <button className="px-[30px] py-[15px] bg-brown text-white uppercase text-[13px]">add to cart</button>
+                      <button
+                        className="px-[30px] py-[15px] bg-brown text-white uppercase text-[13px]"
+                        onClick={() => dispatch(addItem(unit))}
+                      >
+                        add to cart
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="flex gap-[125px] mb-[140px]">
                 <div className="w-[635px]">
-                  <h2 className="font-bold text-[2rem] leading-[36px] mb-[32px]">Features</h2>
-                  <p className="opacity-50 font-medium text-[15px] leading-[25px]">{unit.features}</p>
+                  <h2 className="font-bold text-[2rem] leading-[36px] mb-[32px]">
+                    Features
+                  </h2>
+                  <p className="opacity-50 font-medium text-[15px] leading-[25px]">
+                    {unit.features}
+                  </p>
                 </div>
                 <div>
-                  <h2 className="font-bold text-[2rem] leading-[36px] mb-[32px] uppercase">in the box</h2>
+                  <h2 className="font-bold text-[2rem] leading-[36px] mb-[32px] uppercase">
+                    in the box
+                  </h2>
                   <div>
                     {unit.includes.map((once, index) => (
-                      <div key={index} className='flex gap-[24px] mb-[8px]' >
-                        <span className="text-brown font-bold text-[15px]">{once.quantity}x</span>
-                        <span className="opacity-50 font-medium text-[15px]">{once.item}</span>
+                      <div key={index} className="flex gap-[24px] mb-[8px]">
+                        <span className="text-brown font-bold text-[15px]">
+                          {once.quantity}x
+                        </span>
+                        <span className="opacity-50 font-medium text-[15px]">
+                          {once.item}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="h-[592px] grid grid-cols-2 grid-rows-2 gap-4 border border-black mb-[125px]">
-                {/* <img src={unit.gallery.first.mobile} alt="first mobile" />
-                <img src={unit.gallery.second.mobile} alt="second mobile" />
-                <img src={unit.gallery.third.mobile} alt="third mobile" /> */}
                 <div className={`border border-black`}>
                   <img
                     src={unit.gallery.first.desktop}
@@ -106,7 +135,9 @@ function Product() {
                 </div>
               </div>
               <div className="mb-[90px]">
-                <h2 className="font-bold uppercase text-center text-[32px] mb-[32px]">you may also like</h2>
+                <h2 className="font-bold uppercase text-center text-[32px] mb-[32px]">
+                  you may also like
+                </h2>
                 <div className="flex justigy-between gap-[2rem] text-center">
                   {unit.others.map((uni, index) => (
                     <div

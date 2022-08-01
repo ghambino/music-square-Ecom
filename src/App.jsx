@@ -10,10 +10,18 @@ import axios from "axios";
 import Headphones from "./pages/Headphones";
 import Speakers from "./pages/Speakers";
 import Earphones from "./pages/Earphones";
-import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const [fetchedData, setFetchedData] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const res = localStorage.getItem("cartItem");
+    const parsedData = JSON.parse(res);
+    console.log(parsedData);
+    setCartItems(parsedData);
+  }, []);
 
   useEffect(() => {
     const mintData = async () => {
@@ -33,14 +41,14 @@ function App() {
   };
 
   return (
-    <DataContext.Provider value={{ fetchedData }}>
+    <DataContext.Provider value={{ fetchedData, cartItems }}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/headphones" element={<Headphones />} />
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/earphones" element={<Earphones />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/:slug" element={<Product />} />
         <Route path="*" element={<Nomatch />} />
       </Routes>
