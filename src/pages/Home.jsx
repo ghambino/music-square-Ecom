@@ -1,6 +1,6 @@
 import React from "react";
 import earp from "/assets/home/desktop/image-earphones-yx1.jpg";
-import CategoryDisplay from  "../components/CategoryDisplay";
+import CategoryDisplay from "../components/CategoryDisplay";
 import StoreInfo from "../components/StoreInfo";
 
 // import heroBg from '../starter-code/assets/home/desktop/image-hero.jpg'
@@ -8,13 +8,15 @@ import StoreInfo from "../components/StoreInfo";
 function Home() {
   return (
     <div>
-      <div className=" flex items-center bg-[url('./assets/home/desktop/image-hero.jpg')] bg-[bottom_3rem_right_-9rem] lg:bg-[center_bottom_-2.5rem] bg-auto px-[24px] md:px-[40px] lg:px-[165px] h-[90vh] md:bg-[center]">
-        <div className="text-white w-[379px]">
-          <p className="opacity-50 tracking-[1rem] mb-[24px]">NEW PRODUCT</p>
-          <h1 className="font-700 text-[56px] leading-[58px] tracking-[2px] mb-[24px]">
+      <div className=" flex items-center justify-center lg:justify-start bg-[url('./assets/home/desktop/image-hero.jpg')] bg-[bottom_-2rem_right_-20rem] lg:bg-[center_bottom_-2.5rem] bg-auto px-[24px] md:px-[40px] lg:px-[165px] h-[90vh] md:bg-[bottom_-2rem_right_-17rem]">
+        <div className="text-white w-[100%]  md:w-[379px] text-center lg:text-left">
+          <p className=" text-[14px] opacity-50 tracking-[1rem] mb-[16px] lg:mb-[24px]">
+            NEW PRODUCT
+          </p>
+          <h1 className="font-700 text-[36px] lg:text-[56px] leading-[40px] lg:leading-[58px] tracking-[2px] mb-[24px]">
             XX99 Mark II Headphones
           </h1>
-          <p className="opacity-75 text-[15px] font-medium leading-[25px] mb-[40px] w-[349px]">
+          <p className="opacity-75 text-[15px] font-medium leading-[25px] mb-[40px] w-[100%] lg:w-[349px]">
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
@@ -25,25 +27,28 @@ function Home() {
       </div>
       <div className="bg-white px-[24px] md:px-[40px] lg:px-[165px]">
         <CategoryDisplay />
-        <div className="mb-[48px] mt-[120px] h-[560px] bg-brown bg-[url('./assets/home/desktop/pattern-circles.svg')] bg-cover bg-no-repeat bg-[center_right_27rem]">
-          {/* <img src={speaker} alt="speaker" className='border object-fill' /> */}
-          <div className=" flex items-center justify-end h-[100%] bg-no-repeat bg-[length:400px_400px] bg-[bottom_left_7rem] bg-[url('./assets/home/desktop/image-speaker-zx9.png')]">
-            <div className="w-[349px] mt-[5rem]">
-              <h1 className="w-[261px] font-bold text-[46px] leading-[58px]">
-                ZX9 SPEAKER
-              </h1>
-              <p className="mt-[24px] opacity-75 font-medium text-[15px] leading-[25px]">
-                Upgrade to premium speakers that are phenomenally built to
-                deliver truly remarkable sound.
-              </p>
-              <button className="mt-[40px] bg-black text-white py-[15px] px-[30px] uppercase text-[13px]">
-                see product
-              </button>
-            </div>
+        <div className="px-[1rem] mb-[48px] mt-[120px] h-[560px] bg-brown bg-[url('./assets/home/desktop/pattern-circles.svg')] bg-cover bg-no-repeat lg:bg-[center_right_27rem] flex flex-col items-center lg:flex-row lg:px-[95px] lg:items-center gap-[30px]">
+          <img
+            src={"/assets/home/desktop/image-speaker-zx9.png"}
+            alt=""
+            className=" h-[207px] w-[207px] md:h-[237px] md:w-[237px] lg:h-[493px] lg:w-[493px] lg:mt-[4.5rem] mt-[2rem]"
+          />
+
+          <div className="text-center lg:text-left w-[100%] md:w-[349px]  mt-[1rem] lg:mt-[5rem] text-white">
+            <h1 className="lg:w-[261px] font-bold lg:text-[46px] text-[32px] w-[60%] lg:leading-[58px] leading-[32px] mx-auto lg:mx-0">
+              ZX9 SPEAKER
+            </h1>
+            <p className="mt-[24px] opacity-75 font-medium text-[15px] leading-[25px]">
+              Upgrade to premium speakers that are phenomenally built to deliver
+              truly remarkable sound.
+            </p>
+            <button className=" mt-[24px] lg:mt-[40px] bg-black text-white py-[15px] px-[30px] uppercase text-[13px]">
+              see product
+            </button>
           </div>
         </div>
-        <div className="flex items-center h-[320px] bg-[url('./assets/home/desktop/image-speaker-zx7.jpg')] mb-[48px]">
-          <div className="pl-[95px]">
+        <div className="flex items-center rounded-md h-[320px] bg-[url('./assets/home/desktop/image-speaker-zx7.jpg')] bg-center mb-[48px]">
+          <div className="pl-[95px] border text-start ">
             <h1 className="font-bold text-[28px] leading-[38.5px] tracking-[2px] uppercase mb-[32px]">
               zx7 speaker
             </h1>
@@ -53,9 +58,9 @@ function Home() {
             </button>
           </div>
         </div>
-        <div className="w-[100%] flex gap-[30px]">
-          <img src={earp} alt="" />
-          <div className="bg-custom-gray w-[50%] flex flex-col items-start justify-center pl-[95px]">
+        <div className="flex flex-col md:flex-row gap-[30px]">
+          <img src={earp} alt="" className="rounded-md md:w-50%" />
+          <div className="rounded-md bg-custom-gray md:w-[50%] md:pl-[95px] md:pt-[3rem] w-[100%] px-[24px] py-[48px]">
             <h2 className="uppercase font-bold text-[28px] mb-[32px]">
               YX1 EARPHONES
             </h2>

@@ -41,15 +41,15 @@ function Checkout() {
         <Link to="/" className="hover:text-brown">
           Go Back
         </Link>
-        <div className="w-[100%] my-[38px] flex gap-6 items-start">
-          <div className="w-[65%] bg-white px-[48px] py-[54px] rounded">
-            <h1 className="uppercase font-bold text-[32px] tracking-[2px] leading-[36px] mb-[41px]">
+        <div className="w-[100%] my-[38px] flex flex-col gap-4 lg:flex-row lg:gap-6 items-start">
+          <div className="w-[100%] lg:w-[65%] bg-white px-[24px] py-[31px] lg:px-[48px] lg:py-[54px] rounded">
+            <h1 className="uppercase font-bold text-[28px] md:text-[32px] tracking-[2px] leading-[36px] mb-[41px]">
               checkout
             </h1>
             <h3 className="mb-4 font-bold text-[13px] uppercase text-brown">
               billing details
             </h3>
-            <div className=" grid grid-cols-2 grid-rows-2 gap-4 mb-[53px]">
+            <div className=" grid md:grid-cols-2 md:grid-rows-2 gap-4 mb-[53px]">
               <div className="flex flex-col gap-[9px]">
                 <label htmlFor="name" className="font-bold text-[12px]">
                   Name
@@ -91,8 +91,8 @@ function Checkout() {
             <h3 className="mb-4 font-bold text-[13px] uppercase text-brown">
               shipping info
             </h3>
-            <div className="grid grid-cols-2 grid-rows-3 gap-4 mb-[53px]">
-              <div className="flex flex-col gap-[9px] col-span-2">
+            <div className="grid md:grid-cols-2 md:grid-rows-3 gap-4 mb-[53px]">
+              <div className="flex flex-col gap-[9px] md:col-span-2">
                 <label htmlFor="address" className="font-bold text-[12px]">
                   Address
                 </label>
@@ -140,11 +140,11 @@ function Checkout() {
             <h3 className="mb-4 font-bold text-[13px] uppercase text-brown">
               payment details
             </h3>
-            <div className="grid grid-cols-2 grid-rows-3 gap-4 mb-[5px]">
+            <div className="grid md:grid-cols-2 md:grid-rows-3 gap-4 mb-[5px]">
               <div className="row-span-2">
                 <h2 className="font-bold">Payment Method</h2>
               </div>
-              <div className="border-2 border-input-gray rounded pl-6 flex gap-2 items-center">
+              <div className="border-2 border-input-gray rounded py-3 md:py-0 pl-6 flex gap-2 items-center">
                 <input
                   type="radio"
                   name="e-money"
@@ -154,7 +154,7 @@ function Checkout() {
                 />
                 <label htmlFor="e-money">e-Money</label>
               </div>
-              <div className="border-2 border-input-gray rounded pl-6 flex gap-2 items-center">
+              <div className="border-2 border-input-gray rounded py-3 md:py-0 pl-6 flex gap-2 items-center">
                 <input type="radio" name="cod" id="cod" />
                 <label htmlFor="cod">Cash on Delivery</label>
               </div>
@@ -182,7 +182,7 @@ function Checkout() {
               </div>
             </div>
           </div>
-          <div className="w-[35%] bg-white px-[33px] py-[32px]">
+          <div className=" w-[100%] lg:w-[35%] bg-white px-[33px] py-[32px]">
             <h2 className="mb-[2rem] font-bold text-[18px] uppercase">
               Summary
             </h2>
