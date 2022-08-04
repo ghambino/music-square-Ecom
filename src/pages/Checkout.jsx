@@ -66,9 +66,8 @@ function Checkout() {
                   <label htmlFor="email" className="font-bold text-[12px]">
                     Email Address
                   </label>
-                  <span> </span>
+                  <span></span>
                 </div>
-
                 <input
                   type="email"
                   id="email"

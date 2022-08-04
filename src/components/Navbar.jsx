@@ -27,44 +27,65 @@ function Navbar() {
               className="lg:hidden h-[15px]"
               onClick={() => setHamburgerClick(!harmburgerClick)}
             />
-            <img src={logo} alt="audiophiles" className="h-[25px]" />
+            <Link to={'/'}>
+              <img src={logo} alt="audiophiles" className="h-[25px]" />
+            </Link>
           </div>
           {/* ///// */}
-          <div className={`lg:hidden absolute top-[100%] ${harmburgerClick ? "left-[0]" : "left-[-1100%]"} md:h-[40vh] w-[100%] flex flex-col gap-6  h-[80vh] px-[24px] py-[32px] z-50 bg-white rounded text-black md:px-[20px] md:py-[56px] md:flex md:flex-row md:justify-between md:items-center`}>
-           <div className=" rounded p-[12px] bg-custom-gray flex flex-col items-center">
-          <img
-            src={headphone}
-            alt="headphone"
-            className="h-[75px] w-[75px] mt-[-2rem]"
-          />
-          <p className="font-bold text-[15px] uppercase mb-[8px]">headphones</p>
-          <Link to='/headphones' className="hover:text-brown flex items-center gap-[1rem] uppercase font-bold opacity-50 text-[12px]">
-            shop <img src={arrowRight} alt="arrow-right" />
-          </Link>
-        </div>
-           <div className=" p-[12px] bg-custom-gray flex flex-col items-center">
-          <img
-            src={speaker}
-            alt="headphone"
-            className="h-[75px] w-[75px] mt-[-2rem]"
-          />
-          <p className="font-bold text-[15px] uppercase mb-[8px]">speakers</p>
-          <Link to='/headphones' className="hover:text-brown flex items-center gap-[1rem] uppercase font-bold opacity-50 text-[12px]">
-            shop <img src={arrowRight} alt="arrow-right" />
-          </Link>
-        </div>
-           <div className="p-[12px] bg-custom-gray flex flex-col items-center">
-          <img
-            src={earphone}
-            alt="headphone"
-            className="h-[75px] w-[75px] mt-[-2rem]"
-          />
-          <p className="font-bold text-[15px] uppercase mb-[8px]">earphones</p>
-          <Link to='/headphones' className="hover:text-brown flex items-center gap-[1rem] uppercase font-bold opacity-50 text-[12px]">
-            shop <img src={arrowRight} alt="arrow-right" />
-          </Link>
-        </div>
-        {/* <div className="h-[204px] w-[350px] bg-custom-gray flex flex-col items-center">
+          <div
+            className={`lg:hidden absolute top-[100%] ${
+              harmburgerClick ? "left-[0]" : "left-[-1100%]"
+            } md:h-[40vh] w-[100%] flex flex-col gap-6  h-[80vh] px-[24px] py-[32px] z-50 bg-white rounded text-black md:px-[20px] md:py-[56px] md:flex md:flex-row md:justify-between md:items-center`}
+          >
+            <div className=" rounded p-[12px] bg-custom-gray flex flex-col items-center">
+              <img
+                src={headphone}
+                alt="headphone"
+                className="h-[75px] w-[75px] mt-[-2rem]"
+              />
+              <p className="font-bold text-[15px] uppercase mb-[8px]">
+                headphones
+              </p>
+              <Link
+                to="/headphones"
+                className="hover:text-brown flex items-center gap-[1rem] uppercase font-bold opacity-50 text-[12px]"
+              >
+                shop <img src={arrowRight} alt="arrow-right" />
+              </Link>
+            </div>
+            <div className=" p-[12px] bg-custom-gray flex flex-col items-center">
+              <img
+                src={speaker}
+                alt="headphone"
+                className="h-[75px] w-[75px] mt-[-2rem]"
+              />
+              <p className="font-bold text-[15px] uppercase mb-[8px]">
+                speakers
+              </p>
+              <Link
+                to="/headphones"
+                className="hover:text-brown flex items-center gap-[1rem] uppercase font-bold opacity-50 text-[12px]"
+              >
+                shop <img src={arrowRight} alt="arrow-right" />
+              </Link>
+            </div>
+            <div className="p-[12px] bg-custom-gray flex flex-col items-center">
+              <img
+                src={earphone}
+                alt="headphone"
+                className="h-[75px] w-[75px] mt-[-2rem]"
+              />
+              <p className="font-bold text-[15px] uppercase mb-[8px]">
+                earphones
+              </p>
+              <Link
+                to="/headphones"
+                className="hover:text-brown flex items-center gap-[1rem] uppercase font-bold opacity-50 text-[12px]"
+              >
+                shop <img src={arrowRight} alt="arrow-right" />
+              </Link>
+            </div>
+            {/* <div className="h-[204px] w-[350px] bg-custom-gray flex flex-col items-center">
           <img
             src={speaker}
             alt="speaker"
