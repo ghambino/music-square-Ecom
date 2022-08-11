@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <div>
-      <div className=" flex items-center justify-center lg:justify-start bg-[url('./assets/home/desktop/image-hero.jpg')] bg-[bottom_-2rem_right_-20rem] lg:bg-[center_bottom_-2.5rem] bg-auto px-[24px] md:px-[40px] lg:px-[165px] h-[90vh] md:bg-[bottom_-2rem_right_-17rem]">
+      <div className=" flex items-center justify-center lg:justify-start bg-[url('/assets/home/desktop/image-hero.jpg')] bg-[bottom_-2rem_right_-20rem] lg:bg-[center_bottom_-2.5rem] bg-auto px-[24px] md:px-[40px] lg:px-[165px] h-[90vh] md:bg-[bottom_-2rem_right_-17rem]">
         <div className="text-white w-[100%]  md:w-[379px] text-center lg:text-left">
           <p className=" text-[14px] opacity-50 tracking-[1rem] mb-[16px] lg:mb-[24px]">
             NEW PRODUCT
