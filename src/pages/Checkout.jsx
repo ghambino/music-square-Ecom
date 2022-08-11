@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import orderConfirm from "/assets/checkout/icon-order-confirmation.svg";
@@ -9,7 +9,6 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
   useDisclosure,
   Box,
   Button,
@@ -17,6 +16,31 @@ import {
 } from "@chakra-ui/react";
 
 function Checkout() {
+  const [name, setName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [shippingAddress, setShippingAddress] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+
+  const emailValidation = (val) => {
+    let pattern =
+      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (val.trim().length > 0 && pattern.test(val) === false) {
+      setEmailError("invalid email address");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
+
   const cart = useSelector((state) => state.cart);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,11 +65,13 @@ function Checkout() {
         <Link to="/" className="hover:text-brown">
           Go Back
         </Link>
-        <div className="w-[100%] my-[38px] flex flex-col gap-4 lg:flex-row lg:gap-6 items-start">
+        <form onSubmit={handleFormSubmit} className="w-[100%] my-[38px] flex flex-col gap-4 lg:flex-row lg:gap-6 items-start">
           <div className="w-[100%] lg:w-[65%] bg-white px-[24px] py-[31px] lg:px-[48px] lg:py-[54px] rounded">
             <h1 className="uppercase font-bold text-[28px] md:text-[32px] tracking-[2px] leading-[36px] mb-[41px]">
               checkout
             </h1>
+
+
             <h3 className="mb-4 font-bold text-[13px] uppercase text-brown">
               billing details
             </h3>
@@ -57,6 +83,9 @@ function Checkout() {
                 <input
                   type="text"
                   id="name"
+                  value={name}
+                  onChange={({ target }) => setName(target.value)}
+                  required
                   placeholder="Alexei Ward"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none "
                 />
@@ -66,11 +95,17 @@ function Checkout() {
                   <label htmlFor="email" className="font-bold text-[12px]">
                     Email Address
                   </label>
-                  <span></span>
+                  <span className="text-red-600">{emailError}</span>
                 </div>
                 <input
                   type="email"
                   id="email"
+                  value={emailAddress}
+                  onChange={({ target }) => {
+                    setEmailAddress(target.value);
+                    emailValidation(target.value);
+                  }}
+                  required
                   placeholder="alexei@mail.com"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
                 />
@@ -82,6 +117,9 @@ function Checkout() {
                 <input
                   type="text"
                   id="contact"
+                  value={phoneNumber}
+                  onChange={({ target }) => setPhoneNumber(target.value)}
+                  required
                   placeholder="+1 202-555-0136"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
                 />
@@ -98,6 +136,9 @@ function Checkout() {
                 <input
                   type="text"
                   id="address"
+                  value={shippingAddress}
+                  onChange={({ target }) => setShippingAddress(target.value)}
+                  required
                   placeholder="1137 Williams Avenue"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
                 />
@@ -109,6 +150,8 @@ function Checkout() {
                 <input
                   type="text"
                   id="zip"
+                  value={zipcode}
+                  onChange={({ target }) => setZipcode(target.value)}
                   placeholder="100001"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
                 />
@@ -120,6 +163,8 @@ function Checkout() {
                 <input
                   type="text"
                   id="city"
+                  value={city}
+                  onChange={({ target }) => setCity(target.value)}
                   placeholder="New York"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
                 />
@@ -131,6 +176,8 @@ function Checkout() {
                 <input
                   type="text"
                   id="country"
+                  value={country}
+                  onChange={({ target }) => setCountry(target.value)}
                   placeholder="United States"
                   className="border-2 border-input-gray rounded py-3 pl-6 focus:outline-none"
                 />
@@ -148,7 +195,6 @@ function Checkout() {
                   type="radio"
                   name="e-money"
                   id="e-money"
-                  checked
                   className="bg-brown"
                 />
                 <label htmlFor="e-money">e-Money</label>
@@ -234,12 +280,13 @@ function Checkout() {
 
             <div>
               <button
+                type="submit"
                 className="bg-brown uppercase w-[100%] text-white font-bold text-[13px] py-[15px]"
                 onClick={onOpen}
               >
                 continue {"&"} pay
               </button>
-
+          
               <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
@@ -310,7 +357,7 @@ function Checkout() {
               </Modal>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

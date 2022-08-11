@@ -1,3 +1,6 @@
+
+// const cartItems = localStorage.getItem('cartItems')
+
 const cartReducer = (state = [], action) => {
   switch (action.type) {
     case "ADDITEM": {

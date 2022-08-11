@@ -2,6 +2,7 @@ import React from "react";
 import earp from "/assets/home/desktop/image-earphones-yx1.jpg";
 import CategoryDisplay from "../components/CategoryDisplay";
 import StoreInfo from "../components/StoreInfo";
+import { Link } from 'react-router-dom'
 
 // import heroBg from '../starter-code/assets/home/desktop/image-hero.jpg'
 
@@ -20,9 +21,9 @@ function Home() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <button className="bg-light-brown py-[15px] px-[30px]">
+          <Link to={`/xx99-mark-two-headphones`} className="bg-light-brown py-[15px] px-[30px]"> 
             See Product
-          </button>
+          </Link>
         </div>
       </div>
       <div className="bg-white px-[24px] md:px-[40px] lg:px-[165px]">
@@ -38,13 +39,13 @@ function Home() {
             <h1 className="lg:w-[261px] font-bold lg:text-[46px] text-[32px] w-[60%] lg:leading-[58px] leading-[32px] mx-auto lg:mx-0">
               ZX9 SPEAKER
             </h1>
-            <p className="mt-[24px] opacity-75 font-medium text-[15px] leading-[25px]">
+            <p className="my-[24px] opacity-75 font-medium text-[15px] leading-[25px]">
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <button className=" mt-[24px] lg:mt-[40px] bg-black text-white py-[15px] px-[30px] uppercase text-[13px]">
+            <Link to={`/zx9-speaker`} className=" mt-[24px] lg:mt-[40px] bg-black text-white py-[15px] px-[30px] uppercase text-[13px]">
               see product
-            </button>
+            </Link>
           </div>
         </div>
         <div className="flex items-center rounded-md h-[320px] bg-[url('./assets/home/desktop/image-speaker-zx7.jpg')] bg-center mb-[48px]">
@@ -52,10 +53,10 @@ function Home() {
             <h1 className="font-bold text-[28px] leading-[38.5px] tracking-[2px] uppercase mb-[32px]">
               zx7 speaker
             </h1>
-            <button className="uppercase px-[30px] py-[15px] text-black border border-black border-solid text-[13px]">
+            <Link to={`/zx7-speaker`} className="uppercase px-[30px] py-[15px] text-black border border-black border-solid text-[13px]">
               {" "}
               see product
-            </button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-[30px]">
@@ -64,9 +65,9 @@ function Home() {
             <h2 className="uppercase font-bold text-[28px] mb-[32px]">
               YX1 EARPHONES
             </h2>
-            <button className="uppercase px-[30px] py-[15px] text-black border border-black border-solid text-[13px]">
+            <Link to={`/yx1-earphones`} className="uppercase px-[30px] py-[15px] text-black border border-black border-solid text-[13px]">
               see product
-            </button>
+            </Link>
           </div>
         </div>
         <StoreInfo />
